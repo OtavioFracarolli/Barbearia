@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Fidelis - Agendamento</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <h1>Barbearia Fidelis</h1>
+            <nav class="nav">
+                <a href="index.html">Início</a>
+                <a href="horarios.html" class="btn-destaque ativo">Marcar Horários</a>
+                <a href="index.html#cortes">Cortes</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <div class="agendamento-wrapper">
+            <h2 class="section-title">Reserve seu Horário</h2>
+
+            <form id="formAgendamento" class="form-agendamento">
+                
+                <!-- Passo 1: Escolha o Serviço -->
+                <section class="passo-bloco">
+                    <h3><span>1</span> Escolha o Serviço</h3>
+                    <div class="grade-opcoes">
+                        <label class="card-opcao">
+                            <input type="radio" name="servico" value="Corte Masculino - R$ 20,00" required>
+                            <div class="opcao-info">
+                                <span class="nome">Corte Masculino</span>
+                                <span class="preco">R$ 20,00</span>
+                            </div>
+                        </label>
+
+                        <label class="card-opcao">
+                            <input type="radio" name="servico" value="Corte Infantil (1 - 10 anos) - R$ 15,00">
+                            <div class="opcao-info">
+                                <span class="nome">Corte Infantil (1 a 10 anos)</span>
+                                <span class="preco">R$ 15,00</span>
+                            </div>
+                        </label>
+
+                        <label class="card-opcao">
+                            <input type="radio" name="servico" value="Corte + Barba - R$ 60,00">
+                            <div class="opcao-info">
+                                <span class="nome">Corte + Barba</span>
+                                <span class="preco">R$ 60,00</span>
+                            </div>
+                        </label>
+
+                        <label class="card-opcao">
+                            <input type="radio" name="servico" value="Barba - R$ 30,00">
+                            <div class="opcao-info">
+                                <span class="nome">Barba</span>
+                                <span class="preco">R$ 30,00</span>
+                            </div>
+                        </label>
+
+                        <label class="card-opcao">
+                            <input type="radio" name="servico" value="Sobrancelha - R$ 7,00">
+                            <div class="opcao-info">
+                                <span class="nome">Sobrancelha</span>
+                                <span class="preco">R$ 7,00</span>
+                            </div>
+                        </label>
+
+                        <label class="card-opcao destaque">
+                            <input type="radio" name="servico" value="Corte + Barba + Sobrancelha - R$ 70,00">
+                            <div class="opcao-info">
+                                <span class="nome">Combo Completo (Corte + Barba + Sobrancelha)</span>
+                                <span class="preco">R$ 70,00</span>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Passo 2: Data e Horário -->
+                <section class="passo-bloco">
+                    <h3><span>2</span> Data e Horário</h3>
+
+                    <div class="card-info-horarios">
+                        <ul>
+                            <li>🗓️ <strong>Segunda / Quinta / Sexta:</strong> 13h às 18h</li>
+                            <li>🗓️ <strong>Sábado:</strong> 6h às 17h</li>
+                            <li>🚫 <strong>Terça / Quarta-feira:</strong> Fechado</li>
+                        </ul>
+                    </div>
+
+                    <div class="grupo-inputs-duplo">
+                        <div class="campo-grupo">
+                            <label for="dataAgendamento">Data:</label>
+                            <input type="date" id="dataAgendamento" name="data" required>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="selectHorario">Horário:</label>
+                            <select id="selectHorario" name="horario" required disabled>
+                                <option value="">-- Escolha a data primeiro --</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Passo 3: Seus Dados -->
+                <section class="passo-bloco">
+                    <h3><span>3</span> Seus Dados</h3>
+                    <div class="grupo-inputs-duplo">
+                        <div class="campo-grupo">
+                            <label for="nomeCliente">Nome Completo:</label>
+                            <input type="text" id="nomeCliente" name="nome" placeholder="Ex: Glauco Fidelis" required autocomplete="name">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="telCliente">WhatsApp com DDD:</label>
+                            <input type="tel" id="telCliente" name="telefone" placeholder="(16) 99999-9999" inputmode="numeric" required autocomplete="tel">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Passo 4: Local do Corte -->
+                <section class="passo-bloco">
+                    <h3><span>4</span> Local do Atendimento</h3>
+                    <div class="grade-opcoes dupla">
+                        <label class="card-opcao">
+                            <input type="radio" name="local" value="Barbearia" onclick="toggleEndereco(false)" required>
+                            <div class="opcao-info centralizado">
+                                💈 <span>Na Barbearia</span>
+                            </div>
+                        </label>
+
+                        <label class="card-opcao">
+                            <input type="radio" name="local" value="Sua Residencia" onclick="toggleEndereco(true)">
+                            <div class="opcao-info centralizado">
+                                🏠 <span>Sua Residência (A Domicílio)</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div id="campoEndereco" class="campo-grupo" style="display: none; margin-top: 15px;">
+                        <label><strong style="color: #d4af37;">Taxa de R$ 5,00</strong></label>
+                        <label for="enderecoCliente">Endereço Completo (Rua, Número, Bairro):</label>
+                        <input type="text" id="enderecoCliente" name="endereco" placeholder="Ex: Rua das Flores, 123 - Centro">
+                    </div>
+                </section>
+
+                <!-- Botão Enviar -->
+                <button type="submit" id="btnFinalizar" class="btn-whatsapp">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                    </svg>
+                    Confirmar Agendamento no WhatsApp
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Barbearia Fidelis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

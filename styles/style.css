@@ -1,0 +1,423 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --border-color: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-color: #d4af37;
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #1eb954;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header h1 {
+    font-size: 22px;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.nav a:hover, .nav a.ativo {
+    color: var(--accent-color);
+}
+
+.btn-destaque {
+    background-color: var(--accent-color);
+    color: #121212 !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.hero-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #121212;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.card-horarios {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.card-horarios h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.card-horarios ul {
+    list-style: none;
+}
+
+.card-horarios li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.card-horarios li:last-child {
+    border-bottom: none;
+}
+
+.cortes-section {
+    padding: 40px 0 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.galeria-cortes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card-corte {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.card-corte img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px 0;
+}
+
+.agendamento-wrapper {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.passo-bloco {
+    margin-bottom: 30px;
+}
+
+.passo-bloco h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.passo-bloco h3 span {
+    background-color: var(--accent-color);
+    color: #121212;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.grade-opcoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.grade-opcoes.dupla {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.card-opcao {
+    display: flex;
+    align-items: center;
+    background-color: #252525;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 15px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.card-opcao:hover {
+    border-color: var(--accent-color);
+}
+
+.card-opcao input[type="radio"] {
+    accent-color: var(--accent-color);
+    margin-right: 12px;
+    transform: scale(1.2);
+    flex-shrink: 0;
+}
+
+.opcao-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.opcao-info.centralizado {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.opcao-info .nome {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.opcao-info .preco {
+    font-size: 13px;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.card-info-horarios {
+    background-color: #252525;
+    padding: 14px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.grupo-inputs-duplo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+.campo-grupo label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.campo-grupo input, .campo-grupo select {
+    width: 100%;
+    padding: 12px;
+    background-color: #252525;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.campo-grupo input:focus, .campo-grupo select:focus {
+    border-color: var(--accent-color);
+}
+
+.btn-whatsapp {
+    width: 100%;
+    background-color: var(--whatsapp-color);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    margin-top: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--whatsapp-hover);
+}
+
+.footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .hero-section {
+        padding: 35px 0;
+    }
+
+    .hero-text h2 {
+        font-size: 26px;
+    }
+
+    .btn-principal {
+        width: 100%;
+        text-align: center;
+    }
+
+    .agendamento-wrapper {
+        padding: 20px 15px;
+    }
+
+    .grade-opcoes, 
+    .grade-opcoes.dupla,
+    .grupo-inputs-duplo {
+        grid-template-columns: 1fr;
+    }
+
+    /* 👇 ADICIONE ESTES DOIS ITENS PARA DEIXAR 2 FOTOS POR LINHA NO CELULAR */
+    .galeria-cortes {
+        grid-template-columns: repeat(2, 1fr) !important; /* Força 2 colunas */
+        gap: 10px; /* Diminui um pouco o espaço entre as fotos */
+    }
+
+    .card-corte img {
+        height: 160px; /* Deixa as fotos menores e quadradas/retangulares compactas */
+    }
+    /* 👆 FIM DA ADIÇÃO */
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
